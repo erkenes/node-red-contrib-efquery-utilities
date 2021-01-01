@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('mqtt-device-converter-zigbee2mqtt',{
-        category: 'mqttutilities',
+    RED.nodes.registerType('efquery-converter-tasmota',{
+        category: 'efquery_utilities',
         color: '#a6bbcf',
         defaults: {
             name: {
@@ -11,7 +11,7 @@
                 required: true
             },
             deviceInputData: {
-                value: "zigbee2mqttToEfq",
+                value: "tasmotaToEfquery",
                 required: true
             }
         },
@@ -19,14 +19,14 @@
         outputs: 1,
         inputLabels: ["Input"],
         outputLabels: ["Output"],
-        icon: "mqtt-device-converter-zigbee2mqtt.png",
+        icon: "efquery-converter-tasmota.png",
         label: function() {
-            return this.name || "Device Converter (Zigbee2Mqtt)";
+            return this.name || "Device Converter (Tasmota)";
         }
     });
 </script>
 
-<script type="text/html" data-template-name="mqtt-device-converter-zigbee2mqtt">
+<script type="text/html" data-template-name="efquery-converter-tasmota">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="label.name"></span></label>
         <input type="text" id="node-input-name" data-i18n="[placeholder]placeholder.name">
@@ -36,22 +36,20 @@
         <select id="node-input-deviceType">
             <optgroup data-i18n="[label]configuration.deviceType.bulbs.label">
                 <option value="bulb" data-i18n="[label]configuration.deviceType.bulbs.options.bulb"></option>
-                <!--
                 <option value="bulb_ww" data-i18n="[label]configuration.deviceType.bulbs.options.bulb_ww"></option>
                 <option value="bulb_rgb" data-i18n="[label]configuration.deviceType.bulbs.options.bulb_rgb"></option>
                 <option value="bulb_rgbw" data-i18n="[label]configuration.deviceType.bulbs.options.bulb_rgbw"></option>
-                -->
             </optgroup>
             <optgroup data-i18n="[label]configuration.deviceType.plugs.label">
                 <option value="plug" selected data-i18n="[label]configuration.deviceType.plugs.options.plug"></option>
             </optgroup>
+            <!--
             <optgroup data-i18n="[label]configuration.deviceType.sensors.label">
                 <option value="contact_sensor" data-i18n="[label]configuration.deviceType.sensors.options.contact_sensor"></option>
                 <option value="motion_sensor" data-i18n="[label]configuration.deviceType.sensors.options.motion_sensor"></option>
                 <option value="vibration_sensor" data-i18n="[label]configuration.deviceType.sensors.options.vibration_sensor"></option>
                 <option value="temperature_sensor" data-i18n="[label]configuration.deviceType.sensors.options.temperature_sensor" disabled></option>
             </optgroup>
-            <!--
             <optgroup data-i18n="[label]configuration.deviceType.others.label">
                 <option value="lock" data-i18n="[label]configuration.deviceType.others.options.lock" disabled></option>
                 <option value="thermostat" data-i18n="[label]configuration.deviceType.others.options.thermostat" disabled></option>
@@ -62,8 +60,8 @@
     <div class="form-row">
         <label for="node-input-deviceInputData"><i class="fa fa-server"></i> <span data-i18n="label.deviceInputData"></span></label>
         <select id="node-input-deviceInputData">
-            <option value="zigbee2mqttToEfq" selected>Zigbee2Mqtt -> EFQ</option>
-            <option value="efqToZigbee2mqtt">EFQ -> Zigbee2Mqtt</option>
+            <option value="tasmotaToEfquery" selected>Tasmota -> EFQuery</option>
+            <option value="efqueryToTasmota">EFQuery -> Tasmota</option>
         </select>
     </div>
 </script>

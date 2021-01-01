@@ -1,8 +1,8 @@
-const MqttDevicesConverterTasmotaHelper = require('../lib/MqttDevicesConverterTasmotaHelper.js');
+const EFQueryConverterTasmotaHelper = require('../lib/EFQueryConverterTasmotaHelper.js');
 
 module.exports = function(RED) {
 
-    function MqttDeviceConverterTasmotaNode(config) {
+    function EFQueryConverterTasmotaNode(config) {
         RED.nodes.createNode(this, config);
         this.deviceInputData = config.deviceInputData;
         this.deviceType = config.deviceType;
@@ -17,15 +17,15 @@ module.exports = function(RED) {
 
             const devicesBulbs = ['bulb', 'bulb_ww', 'bulb_rgb', 'bulb_rgbw'];
 
-            if (deviceInputData === 'tasmotaToEfq') {
+            if (deviceInputData === 'tasmotaToEfquery') {
                 messageFormat = 'EFQ';
 
                 if (devicesBulbs.indexOf(deviceType) !== -1) {
-                    msg = MqttDevicesConverterTasmotaHelper.input_bulbs(messageFormat, deviceType, inputPayload);
+                    msg = EFQueryConverterTasmotaHelper.input_bulbs(messageFormat, deviceType, inputPayload);
                 } else if (deviceType === 'plug') {
-                    msg = MqttDevicesConverterTasmotaHelper.input_plugs(messageFormat, deviceType, inputPayload);
+                    msg = EFQueryConverterTasmotaHelper.input_plugs(messageFormat, deviceType, inputPayload);
                 }
-            } else if (deviceInputData === 'efqToTasmota') {
+            } else if (deviceInputData === 'efqueryToTasmota') {
                 messageFormat = 'tasmota';
 
             } else {
@@ -41,13 +41,13 @@ module.exports = function(RED) {
         });
     }
 
-    RED.nodes.registerType("mqtt-device-converter-tasmota", MqttDeviceConverterTasmotaNode, {
+    RED.nodes.registerType("efquery-converter-tasmota", EFQueryConverterTasmotaNode, {
         settings: {
-            mqttDeviceConvertInputDeviceInputData: {
-                value: "tasmotaToEfq",
+            efqueryConvertInputDeviceInputData: {
+                value: "tasmotaToEfquery",
                 exportable: true
             },
-            mqttDeviceConvertInputDeviceType: {
+            efqueryConvertInputDeviceType: {
                 value: "plug",
                 exportable: true
             }

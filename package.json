@@ -1,21 +1,22 @@
 {
-  "name": "node-red-contrib-mqtt-efq-utilities",
-  "version": "0.0.4",
-  "description": "A set of nodes for Zigbee2Mqtt and Tasmota devices which are connected to a MQTT Server",
+  "name": "node-red-contrib-efquery-utilities",
+  "version": "0.0.1a",
+  "description": "A set of nodes for the EFQuery, Tasmota, zigbee2mqtt and AlexaMQTT.",
   "keywords": [
-    "node-red"
+    "node-red",
+    "efquery",
+    "zigbee2mqtt",
+    "alexa",
+    "tasmota"
   ],
   "deprecated": false,
 
   "node-red": {
     "version": ">=1.0.0",
     "nodes": {
-      "tradfri-on-off-switch": "nodes/tradfri-on-off-switch.js",
-      "mqtt-device-converter-tasmota": "nodes/mqtt-device-converter-tasmota.js",
-      "mqtt-device-converter-zigbee2mqtt": "nodes/mqtt-device-converter-zigbee2mqtt.js",
-      "mqtt-device-converter-alexa": "nodes/mqtt-device-converter-alexa.js",
-      "mqtt-device-rgbw-light-converter": "nodes/mqtt-device-rgbw-light-converter.js",
-      "mqtt-device-switch-payload": "nodes/mqtt-device-switch-payload.js"
+      "efquery-converter-tasmota": "nodes/efquery-converter-tasmota.js",
+      "efquery-converter-zigbee2mqtt": "nodes/efquery-converter-zigbee2mqtt.js",
+      "efquery-converter-alexa": "nodes/efquery-converter-alexa.js"
     }
   },
   "contributors": [

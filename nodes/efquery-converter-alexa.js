@@ -1,8 +1,8 @@
-const MqttDevicesConverterAlexaHelper = require('../lib/MqttDevicesConverterAlexaHelper.js');
+const EFQueryConverterAlexaHelper = require('../lib/EFQueryConverterAlexaHelper.js');
 
 module.exports = function(RED) {
 
-    function MqttDeviceConverterAlexaNode(config) {
+    function EFQueryConverterAlexaNode(config) {
         RED.nodes.createNode(this, config);
         this.deviceInputData = config.deviceInputData;
         this.deviceType = config.deviceType;
@@ -18,23 +18,23 @@ module.exports = function(RED) {
             const devicesSensor = ['contact_sensor', 'motion_sensor', 'vibration_sensor'];
             const devicesBulbs = ['bulb', 'bulb_ww', 'bulb_rgb', 'bulb_rgbw'];
 
-            if (deviceInputData === 'alexaToEfq') {
+            if (deviceInputData === 'alexaToEfquery') {
                 messageFormat = 'EFQ';
 
                 if (devicesBulbs.indexOf(deviceType) !== -1) {
-                    msg = MqttDevicesConverterAlexaHelper.bulbs_input(messageFormat, deviceType, inputPayload);
+                    msg = EFQueryConverterAlexaHelper.bulbs_input(messageFormat, deviceType, inputPayload);
                 } else if (deviceType === 'plug') {
-                    msg = MqttDevicesConverterAlexaHelper.plugs_input(messageFormat, deviceType, inputPayload);
+                    msg = EFQueryConverterAlexaHelper.plugs_input(messageFormat, deviceType, inputPayload);
                 }
-            } else if (deviceInputData === 'efqToAlexa') {
+            } else if (deviceInputData === 'efqueryToAlexa') {
                 messageFormat = 'alexa';
 
                 if (devicesBulbs.indexOf(deviceType) !== -1) {
-                        msg = MqttDevicesConverterAlexaHelper.bulbs_output(messageFormat, deviceType, inputPayload);
+                        msg = EFQueryConverterAlexaHelper.bulbs_output(messageFormat, deviceType, inputPayload);
                 } else if (deviceType === 'plug') {
-                    msg = MqttDevicesConverterAlexaHelper.plugs_output(messageFormat, deviceType, inputPayload);
+                    msg = EFQueryConverterAlexaHelper.plugs_output(messageFormat, deviceType, inputPayload);
                 } else if (devicesSensor.indexOf(deviceType) !== -1) {
-                    msg = MqttDevicesConverterAlexaHelper.sensors_output(messageFormat, deviceType, inputPayload);
+                    msg = EFQueryConverterAlexaHelper.sensors_output(messageFormat, deviceType, inputPayload);
                 }
             } else {
                 node.error("No Device Type was specified!");
@@ -49,13 +49,13 @@ module.exports = function(RED) {
         });
     }
 
-    RED.nodes.registerType("mqtt-device-converter-alexa", MqttDeviceConverterAlexaNode, {
+    RED.nodes.registerType("efquery-converter-alexa", EFQueryConverterAlexaNode, {
         settings: {
-            mqttDeviceConverterAlexaDeviceInputData: {
-                value: "alexaToEfq",
+            efqueryConverterAlexaDeviceInputData: {
+                value: "alexaToEfquery",
                 exportable: true
             },
-            mqttDeviceConverterAlexaDeviceType: {
+            efqueryConverterAlexaDeviceType: {
                 value: "plug",
                 exportable: true
             }

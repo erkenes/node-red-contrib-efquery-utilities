@@ -1,6 +1,6 @@
 <script type="text/javascript">
-    RED.nodes.registerType('mqtt-device-converter-tasmota',{
-        category: 'mqttutilities',
+    RED.nodes.registerType('efquery-converter-alexa',{
+        category: 'efquery_utilities',
         color: '#a6bbcf',
         defaults: {
             name: {
@@ -11,7 +11,7 @@
                 required: true
             },
             deviceInputData: {
-                value: "tasmotaToEfq",
+                value: "alexaToEfquery",
                 required: true
             }
         },
@@ -19,14 +19,14 @@
         outputs: 1,
         inputLabels: ["Input"],
         outputLabels: ["Output"],
-        icon: "mqtt-device-converter-tasmota.png",
+        icon: "efquery-converter-alexa.png",
         label: function() {
-            return this.name || "Device Converter (Tasmota)";
+            return this.name || "Device Converter (Alexa)";
         }
     });
 </script>
 
-<script type="text/html" data-template-name="mqtt-device-converter-tasmota">
+<script type="text/html" data-template-name="efquery-converter-alexa">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="label.name"></span></label>
         <input type="text" id="node-input-name" data-i18n="[placeholder]placeholder.name">
@@ -43,13 +43,15 @@
             <optgroup data-i18n="[label]configuration.deviceType.plugs.label">
                 <option value="plug" selected data-i18n="[label]configuration.deviceType.plugs.options.plug"></option>
             </optgroup>
-            <!--
             <optgroup data-i18n="[label]configuration.deviceType.sensors.label">
                 <option value="contact_sensor" data-i18n="[label]configuration.deviceType.sensors.options.contact_sensor"></option>
                 <option value="motion_sensor" data-i18n="[label]configuration.deviceType.sensors.options.motion_sensor"></option>
-                <option value="vibration_sensor" data-i18n="[label]configuration.deviceType.sensors.options.vibration_sensor"></option>
-                <option value="temperature_sensor" data-i18n="[label]configuration.deviceType.sensors.options.temperature_sensor" disabled></option>
+                <!-- Not Supported yet
+                    <option value="vibration_sensor" data-i18n="[label]configuration.deviceType.sensors.options.vibration_sensor"></option>
+                -->
+                <!-- <option value="temperature_sensor" data-i18n="[label]configuration.deviceType.sensors.options.temperature_sensor" disabled></option> -->
             </optgroup>
+            <!--
             <optgroup data-i18n="[label]configuration.deviceType.others.label">
                 <option value="lock" data-i18n="[label]configuration.deviceType.others.options.lock" disabled></option>
                 <option value="thermostat" data-i18n="[label]configuration.deviceType.others.options.thermostat" disabled></option>
@@ -60,8 +62,8 @@
     <div class="form-row">
         <label for="node-input-deviceInputData"><i class="fa fa-server"></i> <span data-i18n="label.deviceInputData"></span></label>
         <select id="node-input-deviceInputData">
-            <option value="tasmotaToEfq" selected>Tasmota -> EFQ</option>
-            <option value="efqToTasmota">EFQ -> Tasmota</option>
+            <option value="alexaToEfquery" selected>Alexa -> EFQuery</option>
+            <option value="efqueryToAlexa">EFQuery -> Alexa</option>
         </select>
     </div>
 </script>
