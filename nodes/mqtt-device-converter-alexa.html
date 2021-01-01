@@ -1,0 +1,69 @@
+<script type="text/javascript">
+    RED.nodes.registerType('mqtt-device-converter-alexa',{
+        category: 'mqttutilities',
+        color: '#a6bbcf',
+        defaults: {
+            name: {
+                value: ""
+            },
+            deviceType: {
+                value: "plug",
+                required: true
+            },
+            deviceInputData: {
+                value: "alexaToEfq",
+                required: true
+            }
+        },
+        inputs: 1,
+        outputs: 1,
+        inputLabels: ["Input"],
+        outputLabels: ["Output"],
+        icon: "mqtt-device-converter-alexa.png",
+        label: function() {
+            return this.name || "Device Converter (Alexa)";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="mqtt-device-converter-alexa">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="label.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]placeholder.name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-deviceType"><i class="fa fa-television"></i> <span data-i18n="label.deviceType"></span></label>
+        <select id="node-input-deviceType">
+            <optgroup data-i18n="[label]configuration.deviceType.bulbs.label">
+                <option value="bulb" data-i18n="[label]configuration.deviceType.bulbs.options.bulb"></option>
+                <!--
+                    <option value="bulb_ww" data-i18n="[label]configuration.deviceType.bulbs.options.bulb_ww"></option>
+                    <option value="bulb_rgb" data-i18n="[label]configuration.deviceType.bulbs.options.bulb_rgb"></option>
+                -->
+                <option value="bulb_rgbw" data-i18n="[label]configuration.deviceType.bulbs.options.bulb_rgbw"></option>
+            </optgroup>
+            <optgroup data-i18n="[label]configuration.deviceType.plugs.label">
+                <option value="plug" selected data-i18n="[label]configuration.deviceType.plugs.options.plug"></option>
+            </optgroup>
+            <optgroup data-i18n="[label]configuration.deviceType.sensors.label">
+                <option value="contact_sensor" data-i18n="[label]configuration.deviceType.sensors.options.contact_sensor"></option>
+                <option value="motion_sensor" data-i18n="[label]configuration.deviceType.sensors.options.motion_sensor"></option>
+                <option value="vibration_sensor" data-i18n="[label]configuration.deviceType.sensors.options.vibration_sensor"></option>
+                <!-- <option value="temperature_sensor" data-i18n="[label]configuration.deviceType.sensors.options.temperature_sensor" disabled></option> -->
+            </optgroup>
+            <!--
+            <optgroup data-i18n="[label]configuration.deviceType.others.label">
+                <option value="lock" data-i18n="[label]configuration.deviceType.others.options.lock" disabled></option>
+                <option value="thermostat" data-i18n="[label]configuration.deviceType.others.options.thermostat" disabled></option>
+            </optgroup>
+            -->
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-deviceInputData"><i class="fa fa-server"></i> <span data-i18n="label.deviceInputData"></span></label>
+        <select id="node-input-deviceInputData">
+            <option value="alexaToEfq" selected>Alexa -> EFQ</option>
+            <option value="efqToAlexa">EFQ -> Alexa</option>
+        </select>
+    </div>
+</script>

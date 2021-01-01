@@ -1,0 +1,30 @@
+{
+  "name": "node-red-contrib-erk-zigbee-mqtt-devices-and-controll",
+  "version": "0.0.4",
+  "description": "A set of nodes for Zigbee2Mqtt and Tasmota devices which are connected to a MQTT Server",
+  "keywords": [
+    "node-red"
+  ],
+  "deprecated": false,
+
+  "node-red": {
+    "version": ">=1.0.0",
+    "nodes": {
+      "tradfri-on-off-switch": "nodes/tradfri-on-off-switch.js",
+      "mqtt-device-converter-tasmota": "nodes/mqtt-device-converter-tasmota.js",
+      "mqtt-device-converter-zigbee2mqtt": "nodes/mqtt-device-converter-zigbee2mqtt.js",
+      "mqtt-device-converter-alexa": "nodes/mqtt-device-converter-alexa.js",
+      "mqtt-device-rgbw-light-converter": "nodes/mqtt-device-rgbw-light-converter.js",
+      "mqtt-device-switch-payload": "nodes/mqtt-device-switch-payload.js"
+    }
+  },
+  "contributors": [
+    {
+      "name": "Enes Erk"
+    }
+  ],
+  "author": {
+    "name": "Enes Erk",
+    "email": "support@eneserk.de"
+  }
+}

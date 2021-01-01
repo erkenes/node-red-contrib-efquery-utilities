@@ -1,0 +1,44 @@
+{
+    "label": {
+        "name": "Name",
+        "deviceType": "Source"
+    },
+    "placeholder": {
+        "name": "Name"
+    },
+    "configuration": {
+        "deviceType": {
+            "bulbs": {
+                "label": "Bulbs",
+                "options": {
+                    "bulb": "Simple Bulb (and Dimmer)",
+                    "bulb_ww": "Calvin-Temperature (and Dimmer)",
+                    "bulb_rgb": "Bulb with RGB (and Dimmer)",
+                    "bulb_rgbw": "Calvin-Temperature and RGB (and Dimmer)"
+                }
+            },
+            "sensors": {
+                "label": "Sensoren",
+                "options": {
+                    "contact_sensor": "Contact-Sensor",
+                    "motion_sensor": "Motion-Sensor",
+                    "vibration_sensor": "Vibration-Sensor",
+                    "temperature_sensor": "Temperature-Sensor"
+                }
+            },
+            "plugs": {
+                "label": "Plugs",
+                "options": {
+                    "plug": "Simple Plug"
+                }
+            },
+            "others": {
+                "label": "Others",
+                "options": {
+                    "lock": "Lock",
+                    "thermostat": "Thermostat"
+                }
+            }
+        }
+    }
+}

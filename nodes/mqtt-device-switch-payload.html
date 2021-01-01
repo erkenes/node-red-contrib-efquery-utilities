@@ -1,0 +1,26 @@
+<script type="text/javascript">
+    RED.nodes.registerType('mqtt-device-switch-payload',{
+        category: 'mqttdevices',
+        color: '#a6bbcf',
+        defaults: {
+            name: {
+                value: ""
+            }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "mqtt-device-switch-payload.png",
+        label: function() {
+            return this.name || "Switch Payload";
+        },
+        inputLabels: ["Input"],
+        outputLabels: ["Output"]
+    });
+</script>
+
+<script type="text/html" data-template-name="mqtt-device-switch-payload">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> <span data-i18n="label.name"></span></label>
+        <input type="text" id="node-input-name" data-i18n="[placeholder]placeholder.name">
+    </div>
+</script>
