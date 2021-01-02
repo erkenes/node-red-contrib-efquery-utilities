@@ -9,7 +9,8 @@ module.exports = function(RED) {
         const node = this;
 
         node.on('input', function (msg, send, done) {
-            let messageFormat;
+            let messageFormat,
+                outputOfFunction;
             const deviceInputData = node.deviceInputData;
             const deviceType = node.deviceType;
             const inputMsg = msg;
@@ -21,14 +22,35 @@ module.exports = function(RED) {
                 messageFormat = 'EFQ';
 
                 if (devicesBulbs.indexOf(deviceType) !== -1) {
-                    msg = EFQueryConverterTasmotaHelper.input_bulbs(messageFormat, deviceType, inputPayload);
-                } else if (deviceType === 'plug') {
-                    msg = EFQueryConverterTasmotaHelper.input_plugs(messageFormat, deviceType, inputPayload);
-                }
-            } else if (deviceInputData === 'efqueryToTasmota') {
-                messageFormat = 'tasmota';
+                    outputOfFunction = EFQueryConverterTasmotaHelper.input_bulbs(messageFormat, deviceType, inputPayload)
 
-            } else {
+                    msg = outputOfFunction[0];
+                    this.status(outputOfFunction[1]);
+                }
+                else if (deviceType === 'plug') {
+                    outputOfFunction = EFQueryConverterTasmotaHelper.input_plugs(messageFormat, deviceType, inputPayload);
+
+                    msg = outputOfFunction[0];
+                    this.status(outputOfFunction[1]);
+                }
+            }
+            else if (deviceInputData === 'efqueryToTasmota') {
+                messageFormat = 'tasmota';
+                if (devicesBulbs.indexOf(deviceType) !== -1) {
+                    outputOfFunction = EFQueryConverterTasmotaHelper.output_bulbs(messageFormat, deviceType, inputPayload);
+
+                    msg = outputOfFunction[0];
+                    this.status(outputOfFunction[1]);
+                }
+                else if (deviceType === 'plug') {
+                    outputOfFunction = EFQueryConverterTasmotaHelper.output_plugs(messageFormat, deviceType, inputPayload);
+
+                    msg = outputOfFunction[0];
+                    this.status(outputOfFunction[1]);
+                }
+            }
+            else {
+                this.status({fill: "error", shape: "ring", text: "No Device Type was specified!"});
                 node.error("No Device Type was specified!");
                 msg = inputMsg;
             }

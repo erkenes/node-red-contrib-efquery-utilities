@@ -25,6 +25,11 @@ Available Nodes are:
 * Convert Plugs to EFQuery: `plug`
 
 
+* Convert EFQuery bulbs to Tasmota: `bulb`, `bulb_ww`, `bulb_rgb`, `bulb_rgbw`
+* Convert EFQuery plugs to Tasmota: `plug`
+
+
+
 ### alexa:
 
 * Convert bulbs to EFQuery: `bulb`, `bulb_ww`, `bulb_rgb`, `bulb_rgbw`
@@ -45,8 +50,6 @@ Available Nodes are:
 * Convert EFQuery bulbs to zigbee2mqtt: `bulb`
 
 ### tasmota:
-
-* Convert EFQuery bulbs to Tasmota: `bulb`, `bulb_ww`, `bulb_rgb`, `bulb_rgbw`
 
 ---
 
