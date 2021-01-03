@@ -8,6 +8,8 @@ module.exports = function(RED) {
         this.deviceType = config.deviceType;
         const node = this;
         const devicesSensor = ['contact_sensor', 'motion_sensor', 'vibration_sensor'];
+        const devicesBulbs = ['bulb', 'bulb_ww', 'bulb_rgb', 'bulb_rgbw'];
+
 
         node.on('input', function (msg, send, done) {
             let messageFormat;
@@ -23,14 +25,17 @@ module.exports = function(RED) {
                 if (devicesSensor.indexOf(deviceType) !== -1) {
                     msg = EFQueryConverterZigbee2MqttHelper.input_sensors(messageFormat, deviceType, inputPayload);
                 }
+                else if (devicesBulbs.indexOf(deviceType) !== -1) {
+                    msg = EFQueryConverterZigbee2MqttHelper.input_bulbs(messageFormat, deviceType, inputPayload);
+                }
                 else if (deviceType === 'plug') {
                     msg = EFQueryConverterZigbee2MqttHelper.input_plug(messageFormat, deviceType, inputPayload);
                 }
             } else if (deviceInputData === 'efqueryToZigbee2mqtt') {
                 messageFormat = 'zigbee2mqtt';
 
-                if (devicesSensor.indexOf(deviceType) !== -1) {
-                    // msg = EFQueryConverterZigbee2MqttHelper.input_sensors(messageFormat, deviceType, inputPayload);
+                if (devicesBulbs.indexOf(deviceType) !== -1) {
+                    msg = EFQueryConverterZigbee2MqttHelper.output_bulbs(messageFormat, deviceType, inputPayload);
                 }
                 else if (deviceType === 'plug') {
                     msg = EFQueryConverterZigbee2MqttHelper.output_plug(messageFormat, deviceType, inputPayload);
