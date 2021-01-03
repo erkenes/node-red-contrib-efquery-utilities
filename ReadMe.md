@@ -14,10 +14,11 @@ Available Nodes are:
 
 * Convert Sensors to EFQuery: `motion_sensor`, `contact_sensor`, `vibration_sensor`
 * Convert Plugs to EFQuery: `plug`
+* Convert Bulbs to EFQuery: `bulb`
 
 
 * Convert EFQuery plugs to zigbee2mqtt: `plug`
-
+* Convert EFQuery bulbs to zigbee2mqtt: `bulb`
 
 ### tasmota
 
@@ -46,16 +47,14 @@ Available Nodes are:
 
 ### zigbee2mqtt:
 
-* Convert bulbs to EFQuery: `bulb`
-* Convert EFQuery bulbs to zigbee2mqtt: `bulb`
-
 ### tasmota:
+
+### alexa:
 
 ---
 
 ## Future Features
-Second Repository for EFQuery-Devices or EFQuery-Tools.<br>
-Tasmota needs multiple MQTT Outputs
+Second Repository for EFQuery-Devices or EFQuery-Tools.
 
 ### zigbee2mqtt
 
