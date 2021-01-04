@@ -1,11 +1,8 @@
 {
-  "name": "node-red-contrib-efquery-utilities",
+  "name": "@eneserk/red-contrib-efquery-utilities",
   "version": "0.1.0",
   "description": "A set of nodes for the EFQuery, Tasmota, zigbee2mqtt and AlexaMQTT.",
-  "author": {
-    "name": "Enes Erk",
-    "email": "support@eneserk.de"
-  },
+  "author": "Enes Erk <support@eneserk.de>",
   "keywords": [
     "node-red",
     "efquery",
@@ -14,7 +11,6 @@
     "tasmota"
   ],
   "deprecated": false,
-
   "node-red": {
     "version": ">=1.0.0",
     "nodes": {
@@ -28,8 +24,22 @@
     "node-red-contrib-alexa-smart-home": "~0.4.67"
   },
   "contributors": [
-    {
-      "name": "Enes Erk"
-    }
-  ]
+    "Enes Erk"
+  ],
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EnesE/node-red-contrib-mqtt-efq-utilities.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EnesE/node-red-contrib-mqtt-efq-utilities/issues"
+  },
+  "homepage": "https://github.com/EnesE/node-red-contrib-mqtt-efq-utilities#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }
