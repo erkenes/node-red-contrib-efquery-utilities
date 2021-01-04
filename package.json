@@ -1,7 +1,11 @@
 {
   "name": "node-red-contrib-efquery-utilities",
-  "version": "0.0.1a",
+  "version": "0.1.0",
   "description": "A set of nodes for the EFQuery, Tasmota, zigbee2mqtt and AlexaMQTT.",
+  "author": {
+    "name": "Enes Erk",
+    "email": "support@eneserk.de"
+  },
   "keywords": [
     "node-red",
     "efquery",
@@ -19,13 +23,13 @@
       "efquery-converter-alexa": "nodes/efquery-converter-alexa.js"
     }
   },
+  "dependencies": {
+    "node-red-contrib-zigbee2mqtt": "~0.6.2",
+    "node-red-contrib-alexa-smart-home": "~0.4.67"
+  },
   "contributors": [
     {
       "name": "Enes Erk"
     }
-  ],
-  "author": {
-    "name": "Enes Erk",
-    "email": "support@eneserk.de"
-  }
+  ]
 }
