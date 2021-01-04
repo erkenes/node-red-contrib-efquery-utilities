@@ -1,6 +1,6 @@
 {
   "name": "@eneserk/red-contrib-efquery-utilities",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A set of nodes for the EFQuery, Tasmota, zigbee2mqtt and AlexaMQTT.",
   "author": "Enes Erk <support@eneserk.de>",
   "keywords": [
