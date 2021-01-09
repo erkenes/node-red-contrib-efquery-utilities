@@ -55,11 +55,11 @@ module.exports = function(RED) {
 
     RED.nodes.registerType("efquery-converter-zigbee2mqtt", EFQueryConverterZigbee2MqttNode, {
         settings: {
-            efqueryConverterZigbee2MqttDeviceInputData: {
+            efqueryConverterZigbee2mqttDeviceInputData: {
                 value: "zigbee2mqttToEfquery",
                 exportable: true
             },
-            efqueryConverterZigbee2MqttDeviceType: {
+            efqueryConverterZigbee2mqttDeviceType: {
                 value: "plug",
                 exportable: true
             }
