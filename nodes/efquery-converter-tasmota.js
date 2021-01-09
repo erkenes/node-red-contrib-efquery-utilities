@@ -65,11 +65,11 @@ module.exports = function(RED) {
 
     RED.nodes.registerType("efquery-converter-tasmota", EFQueryConverterTasmotaNode, {
         settings: {
-            efqueryConvertInputDeviceInputData: {
+            efqueryConvertTasmotaInputData: {
                 value: "tasmotaToEfquery",
                 exportable: true
             },
-            efqueryConvertInputDeviceType: {
+            efqueryConvertTasmotaDeviceType: {
                 value: "plug",
                 exportable: true
             }
