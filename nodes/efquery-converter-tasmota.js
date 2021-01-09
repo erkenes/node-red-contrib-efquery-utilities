@@ -7,6 +7,7 @@ module.exports = function(RED) {
         this.deviceInputData = config.deviceInputData;
         this.deviceType = config.deviceType;
         const node = this;
+        const devicesBulbs = ['bulb', 'bulb_ww', 'bulb_rgb', 'bulb_rgbw'];
 
         node.on('input', function (msg, send, done) {
             let messageFormat,
@@ -16,7 +17,6 @@ module.exports = function(RED) {
             const inputMsg = msg;
             const inputPayload = inputMsg.payload;
 
-            const devicesBulbs = ['bulb', 'bulb_ww', 'bulb_rgb', 'bulb_rgbw'];
 
             if (deviceInputData === 'tasmotaToEfquery') {
                 messageFormat = 'EFQ';
