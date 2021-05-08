@@ -32,13 +32,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EnesE/node-red-contrib-mqtt-efq-utilities.git"
+    "url": "git+https://github.com/EnesE/node-red-contrib-efquery-utilities.git.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/EnesE/node-red-contrib-mqtt-efq-utilities/issues"
+    "url": "https://github.com/EnesE/node-red-contrib-efquery-utilities.git/issues"
   },
-  "homepage": "https://github.com/EnesE/node-red-contrib-mqtt-efq-utilities#readme",
+  "homepage": "https://github.com/EnesE/node-red-contrib-efquery-utilities.git#readme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   }
