@@ -6,6 +6,8 @@ module.exports = function(RED) {
         RED.nodes.createNode(this, config);
         this.deviceInputData = config.deviceInputData;
         this.deviceType = config.deviceType;
+        this.globalContextName = config.globalContextName;
+
         const node = this;
         const devicesBulbs = ['bulb', 'bulb_ww', 'bulb_rgb', 'bulb_rgbw'];
 
@@ -14,10 +16,11 @@ module.exports = function(RED) {
                 outputOfFunction;
             const deviceInputData = node.deviceInputData;
             const deviceType = node.deviceType;
+            const globalContextName = node.globalContextName;
             const inputMsg = msg;
             const inputPayload = inputMsg.payload;
 
-
+            // If input is from tasmota
             if (deviceInputData === 'tasmotaToEfquery') {
                 messageFormat = 'EFQ';
 
@@ -33,7 +36,16 @@ module.exports = function(RED) {
                     msg = outputOfFunction[0];
                     this.status(outputOfFunction[1]);
                 }
+
+                // Save EFQuery into the global context if a name is set
+                if (globalContextName) {
+                    const globalContext = this.context().global;
+
+                    globalContext.set(globalContextName, msg.payload);
+                }
             }
+
+            // if input is form EFQuery
             else if (deviceInputData === 'efqueryToTasmota') {
                 messageFormat = 'tasmota';
                 if (devicesBulbs.indexOf(deviceType) !== -1) {
@@ -71,6 +83,10 @@ module.exports = function(RED) {
             },
             efqueryConvertTasmotaDeviceType: {
                 value: "plug",
+                exportable: true
+            },
+            efqueryConvertTasmotaGlobalContextName: {
+                value: "",
                 exportable: true
             }
         }

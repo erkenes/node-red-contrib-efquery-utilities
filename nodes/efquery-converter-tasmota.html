@@ -13,6 +13,10 @@
             deviceInputData: {
                 value: "tasmotaToEfquery",
                 required: true
+            },
+            globalContextName: {
+                value: "",
+                required: false
             }
         },
         inputs: 1,
@@ -63,5 +67,9 @@
             <option value="tasmotaToEfquery" selected>Tasmota -> EFQuery</option>
             <option value="efqueryToTasmota">EFQuery -> Tasmota</option>
         </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-globalContextName"><i class="fa fa-archive"></i> <span data-i18n="label.globalContextName"></span></label>
+        <input type="text" id="node-input-globalContextName" data-i18n="[placeholder]placeholder.globalContextName">
     </div>
 </script>
