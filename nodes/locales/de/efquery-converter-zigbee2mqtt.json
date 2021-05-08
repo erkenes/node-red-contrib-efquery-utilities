@@ -2,10 +2,12 @@
     "label": {
         "name": "Name",
         "deviceType": "Gerät",
-        "deviceInputData": "Konvertierung"
+        "deviceInputData": "Konvertierung",
+        "globalContextName": "Globaler-Kontext Name"
     },
     "placeholder": {
-        "name": "Name"
+        "name": "Name",
+        "globalContextName": "Globaler-Kontext Name"
     },
     "configuration": {
         "deviceType": {

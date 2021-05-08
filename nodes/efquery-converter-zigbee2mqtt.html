@@ -13,6 +13,10 @@
             deviceInputData: {
                 value: "zigbee2mqttToEfquery",
                 required: true
+            },
+            globalContextName: {
+                value: "",
+                required: false
             }
         },
         inputs: 1,
@@ -65,5 +69,9 @@
             <option value="zigbee2mqttToEfquery" selected>Zigbee2Mqtt -> EFQuery</option>
             <option value="efqueryToZigbee2mqtt">EFQuery -> Zigbee2Mqtt</option>
         </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-globalContextName"><i class="fa fa-archive"></i> <span data-i18n="label.globalContextName"></span></label>
+        <input type="text" id="node-input-globalContextName" data-i18n="[placeholder]placeholder.globalContextName">
     </div>
 </script>

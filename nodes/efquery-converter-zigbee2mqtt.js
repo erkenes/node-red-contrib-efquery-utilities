@@ -6,19 +6,21 @@ module.exports = function(RED) {
         RED.nodes.createNode(this, config);
         this.deviceInputData = config.deviceInputData;
         this.deviceType = config.deviceType;
+        this.globalContextName = config.globalContextName;
+
         const node = this;
         const devicesSensor = ['contact_sensor', 'motion_sensor', 'vibration_sensor'];
         const devicesBulbs = ['bulb', 'bulb_ww', 'bulb_rgb', 'bulb_rgbw'];
-
 
         node.on('input', function (msg, send, done) {
             let messageFormat;
             const deviceInputData = node.deviceInputData;
             const deviceType = node.deviceType;
+            const globalContextName = node.globalContextName;
             const inputMsg = msg;
             const inputPayload = inputMsg.payload;
 
-
+            // If input is from zigbee2mqtt
             if (deviceInputData === 'zigbee2mqttToEfquery') {
                 messageFormat = 'EFQ';
 
@@ -31,7 +33,17 @@ module.exports = function(RED) {
                 else if (deviceType === 'plug') {
                     msg = EFQueryConverterZigbee2MqttHelper.input_plug(messageFormat, deviceType, inputPayload);
                 }
-            } else if (deviceInputData === 'efqueryToZigbee2mqtt') {
+
+                // Save EFQuery into the global context if a name is set
+                if (globalContextName) {
+                    const globalContext = this.context().global;
+
+                    globalContext.set(globalContextName, msg.payload);
+                }
+            }
+
+            // if input is form EFQuery
+            else if (deviceInputData === 'efqueryToZigbee2mqtt') {
                 messageFormat = 'zigbee2mqtt';
 
                 if (devicesBulbs.indexOf(deviceType) !== -1) {
@@ -61,6 +73,10 @@ module.exports = function(RED) {
             },
             efqueryConverterZigbee2mqttDeviceType: {
                 value: "plug",
+                exportable: true
+            },
+            efqueryConverterZigbee2mqttGlobalContextName: {
+                value: "",
                 exportable: true
             }
         }
