@@ -40,27 +40,3 @@ Available Nodes are:
 * Convert EFQuery bulbs to Alexa: `bulb`, `bulb_ww`, `bulb_rgb`, `bulb_rgbw`
 * Convert EFQuery plugs to Alexa: `plug`
 * Convert EFQuery sensors to Alexa: `motion_sensor`, `contact_sensor`
-
----
-
-## What is missing:
-
-### zigbee2mqtt:
-
-### tasmota:
-
-### alexa:
-
----
-
-## Future Features
-Second Repository for EFQuery-Devices or EFQuery-Tools.
-
-### zigbee2mqtt
-
-* Convert bulbs to EFQuery: `bulb_ww`, `bulb_rgb`, `bulb_rgbw`
-* Convert EFQuery bulbs to zigbee2mqtt: `bulb_ww`, `bulb_rgb`, `bulb_rgbw`
-
-### alexa:
-
-* Convert EFQuery smart locks to Alexa: `smart_lock`
